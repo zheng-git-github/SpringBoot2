@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            alert(123)
+            $.ajax({
+                url: "/stu/massage",
+                type:"get",
+                data:{},
+                datatype:"json",
+                success:function (result) {
+                    alert(result)
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>地址</th>
+    </tr>
+    <tr th:each ="user:${ListAll}">
+        <td th:text="${user.sid}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.address}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
